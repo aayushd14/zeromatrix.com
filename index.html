@@ -1278,10 +1278,8 @@
       })();
     }
   </script>
-</body>
-</html>
 
-<!-- Chatbot Widget -->
+  <!-- Chatbot Widget -->
   <div id="glits-chatbot" class="glits-chat-button">
     <svg id="hair" class="robot-layer" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M29.9988 24.148L5.8512 0L-5.0344e-05 5.85133L24.1476 29.9993L29.9988 24.148Z" fill="#0E75B4" />
@@ -1348,31 +1346,9 @@
     </div>
   </div>
 
-  <script>
-    // Load chatbot AFTER page fully loads to avoid conflicts
-    window.addEventListener('load', function() {
-      console.log('Loading chatbot...');
-      
-      // Load init script first
-      const initScript = document.createElement('script');
-      initScript.src = '/static/chatbot-init.js';
-      initScript.async = false;
-      document.head.appendChild(initScript);
-      
-      // Then load main chatbot script
-      setTimeout(() => {
-        const script = document.createElement('script');
-        script.src = '/static/chat_bot.js';
-        script.async = true;
-        document.body.appendChild(script);
-      }, 500);
-    });
-  </script>
+  <!-- Load chatbot script -->
+  <script src="/chat_bot.js"></script>
 </body>
 </html>
-
-
-
-
 
 
