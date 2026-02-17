@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PsycoLLM - Mental Health Assistant</title>
+    <link rel="stylesheet" href="./static/chat_bot.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+
+<div id="glits-chatbot" class="glits-chat-button">
+    <svg id="hair" class="robot-layer" width="30" height="30" viewBox="0 0 30 30" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="M29.9988 24.148L5.8512 0L-5.0344e-05 5.85133L24.1476 29.9993L29.9988 24.148Z" fill="#0E75B4" />
+        <path d="M24.1487 0.00046199L0.00109863 24.1484L5.85235 29.9998L30 5.8518L24.1487 0.00046199Z" fill="#0E75B4" />
+    </svg>
+    <svg id="head" class="robot-layer" width="52" height="50" viewBox="0 0 52 50" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="M26,0c20.24,0,26,5.49,26,26.47,0,23.84-10.75,23.53-26,23.53S0,50.31,0,26.47C0,5.49,5.76,0,26,0Z"
+            fill="url(#glits_hd-color)" />
+        <defs>
+            <linearGradient id="glits_hd-color" x1="26" y1="0" x2="26" y2="50" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#69ffc1" />
+                <stop offset="1" stop-color="#b4f500" />
+            </linearGradient>
+        </defs>
+    </svg>
+    <svg id="face" class="robot-layer" width="40" height="32" viewBox="0 0 44 36" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="M22,36c15.09,0,20.52-.87,21.83-16.94S39.44,0,22,0-1.1,3.45.17,19.06c1.3,16.07,6.74,16.94,21.83,16.94Z"
+            fill="url(#face-color)" />
+        <defs>
+            <linearGradient id="face-color" x1="22" y1="0" x2="22" y2="36" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#840000" />
+                <stop offset="1" stop-color="#be0075" />
+            </linearGradient>
+        </defs>
+    </svg>
+    <svg id="expression" class="robot-layer" width="30" height="15" viewBox="0 0 32 15" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path id="eye-l" d="M3.78,12c3.45,0,3.78-2.7,3.78-6S7.56,0,3.78,0,0,2.7,0,6s.33,6,3.78,6Z" fill="white" />
+        <path id="mouth"
+            d="M13.05,12.76c-1.13-.45-.82,2.24,2.99,2.24,4.21,0,4.24-3.55,3.01-4.13-1.35-.64-1.75,3.6-5.99,1.89Z"
+            fill="white" />
+        <path id="eye-r" d="M26.22,12c3.45,0,3.78-2.7,3.78-6s0-6-3.78-6-3.78,2.7-3.78,6,.33,6,3.78,6Z" fill="white" />
+    </svg>
+
+    <div class="glits-bubble" id="glitsBubble">
+		<strong>Hi there,</strong><br>How can we help?
+	</div>
+</div>
+
+<div id="glits-chatWindow" class="glits-chat-window">
+
+    <!-- TOP HEADER (ONLY ONE) -->
+    <div class="glits-chat-header d-flex align-items-center justify-content-between text-white">
+        <div class="header-left d-flex">
+            <button class="expand-button" id="expandButton">
+                <i class="fa-solid fa-expand-arrows-alt"></i>
+            </button>
+        </div>
+        <h3 class="mb-0"> AI Moto</h3>
+        <div class="header-right d-flex gap-2">
+            <button class="screenshot-button" id="screenshotButton" title="Take screenshot">
+                <i class="fa-solid fa-camera"></i>
+            </button>
+            <button class="close-button" id="closeButton">
+                <i class="fa-solid fa-times text-white fs-16"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- SUGGESTIONS (NO HEADER HERE) -->
+    <div class="glits-suggestions" id="glitsSuggestions"></div>
+
+    <!-- CHAT MESSAGES (ONLY ONE) -->
+    <div class="glits-chat-messages d-flex flex-column" id="glits-chatMessages"></div>
+
+    <!-- INPUT -->
+    <div class="glits-chat-input-area d-flex align-items-center bg-white">
+        <div class="glits-chat-input-group d-flex">
+            <input type="text" class="glits-chat-input" id="glits-chatInput" placeholder="Type a message...">
+            <button class="send-button d-flex align-items-center justify-content-center border-0 rounded-circle" id="sendButton">
+                <i class="fa-regular fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+</div>
+
+<script src="./static/chat_bot.js" ></script>
+</body>
+</html>
